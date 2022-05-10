@@ -33,7 +33,7 @@ function moveAll() {
     console.log("moving balls")
 
     // Clear the specified pixels within the given rectangle
-    context.clearRect(0, 0, innerWidth, innerHeight);
+    context.clearRect(0, 0, display.width, display.height);
 
     // Move all the balls
     for (let index2 = 0; index2 < balls.length; index2++) {
@@ -73,13 +73,13 @@ function move(ball) {
 
     // Conditions so that the ball bounces
     // from the edges
-    if (ball.radius + ball.x > innerWidth) {
+    if (ball.radius + ball.x > display.width) {
         ball.horizontalSpeed = 0 - ball.horizontalSpeed;
     }
     if (ball.x - ball.radius < 0) {
         ball.horizontalSpeed = 0 - ball.horizontalSpeed;
     }
-    if (ball.y + ball.radius > innerHeight) {
+    if (ball.y + ball.radius > display.height) {
         ball.verticalSpeed = 0 - ball.verticalSpeed;
     }
     if (ball.y - ball.radius < 0) {
