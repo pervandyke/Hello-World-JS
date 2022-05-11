@@ -1,7 +1,7 @@
 
-colors = [String("green"), String("red"), String("white"), String("blue"), String("orange"), String("yellow")]
-balls = []
-numberOfBalls = Number(50)
+const colors = [String("green"), String("red"), String("white"), String("blue"), String("orange"), String("yellow")]
+const balls = []
+const numberOfBalls = Number(50)
 
 const display = document.getElementById("display");
 display.height = Number(display.clientHeight) * Number(window.devicePixelRatio);
@@ -18,7 +18,7 @@ window.addEventListener('resize', () => {
     }
     generateBalls(numberOfBalls)
 
- });
+});
 
 setInterval(moveAll, 20)
 
@@ -30,7 +30,7 @@ function generateBalls(number) {
 }
 
 function moveAll() {
-    console.log("moving balls")
+    //console.log("moving balls")
 
     // Clear the specified pixels within the given rectangle
     context.clearRect(0, 0, display.width, display.height);
@@ -45,11 +45,11 @@ function moveAll() {
 function createball(color) {
 
     // Set up initial position and speed
-    let x = getRandomArbitrary(50, display.width - 50)
-    let y = getRandomArbitrary(50, display.height - 50)
+    const x = getRandomArbitrary(50, display.width - 50)
+    const y = getRandomArbitrary(50, display.height - 50)
 
-    let horizontalSpeed = Math.floor((getRandomArbitrary(-1, 1) * 6))
-    let verticalSpeed = Math.floor((getRandomArbitrary(-1, 1) * 12))
+    const horizontalSpeed = Math.floor((getRandomArbitrary(-1, 1) * 6))
+    const verticalSpeed = Math.floor((getRandomArbitrary(-1, 1) * 12))
 
     const radius = Number(15)
 
@@ -59,7 +59,7 @@ function createball(color) {
         horizontalSpeed,
         verticalSpeed,
         radius,
-        color
+        color,
     }
 }
 
@@ -95,10 +95,10 @@ function move(ball) {
 // From here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
-  }
+}
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-  }
+}
